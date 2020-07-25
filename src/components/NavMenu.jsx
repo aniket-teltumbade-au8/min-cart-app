@@ -4,9 +4,9 @@ import { NavLink } from "react-router-dom";
 class NavMenu extends Component {
   render() {
     return (
-      <nav>
+      <div className="nav-items">
         <NavLink to="/">Home</NavLink>
-      </nav>
+      </div>
     );
   }
 }

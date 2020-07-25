@@ -5,35 +5,59 @@
   align-items: center;
   margin: auto;
 }
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
 .product-card {
   box-shadow: 2px 2px yellow;
   flex: 0 1 200px;
   margin: 20px;
 }
-.product-info{
+.product-info {
   height: 230px;
 }
-.product-image{
+.product-image {
   margin: 0;
   height: 190px;
   width: 200px;
   background-size: cover;
-  background-position:  center;
+  background-position: center;
   display: flex;
 }
-.product-title{
+.product-title {
   align-self: flex-end;
-  text-align:center;
+  text-align: center;
   width: 100%;
   padding: 5px;
   background-color: #55555560;
   color: white;
 }
-.product-price{
-  display:flex;
-  justify-content: space-around;
-}
-.actions{
+.product-price {
   display: flex;
   justify-content: space-around;
+}
+.actions {
+  display: flex;
+  justify-content: space-around;
+}
+select#soflow {
+  -webkit-appearance: button;
+  border-radius: 2px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  -webkit-padding-end: 20px;
+  -webkit-padding-start: 2px;
+  -webkit-user-select: none;
+  background-position: 97% center;
+  background-repeat: no-repeat;
+  border: 1px solid #aaa;
+  color: #555;
+  font-size: inherit;
+  margin: 20px;
+  overflow: hidden;
+  padding: 5px 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 300px;
 }

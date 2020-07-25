@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchProducts } from "../redux/actions/productActions";
 import Products from "../components/Products";
+import Loader from "react-loader-spinner";
 class HomePage extends Component {
   componentDidMount() {
     console.log(this);
@@ -14,10 +15,20 @@ class HomePage extends Component {
         {console.log(this.props.prod.rows)}
         {this.props.prod.rows.map(p => (
           <Products key={p.product_id} product={p} />
-         ))}
+        ))}
       </div>
     ) : (
-      <h1>Loading</h1>
+      <div
+        style={{
+          width: "100vw",
+          height: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center"
+        }}
+      >
+        <Loader type="Grid" color="#00BFFF" height={80} width={80} />
+      </div>
     );
   }
 }
