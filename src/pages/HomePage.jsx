@@ -5,11 +5,9 @@ import Products from "../components/Products";
 import Loader from "react-loader-spinner";
 class HomePage extends Component {
   componentDidMount() {
-    console.log(this);
     this.props.fetchProducts();
   }
   render() {
-    //console.log(this.props.prod);
     return this.props.prod ? (
       <div className="Home">
         {console.log(this.props.prod.rows)}

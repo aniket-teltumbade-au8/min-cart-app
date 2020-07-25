@@ -9,6 +9,7 @@ import HomePage from "./pages/HomePage";
 import NavMenu from "./components/NavMenu";
 import "./styles.css";
 import FilterByCategory from "./components/FilterByCategory";
+import ProductCatFilter from "./pages/ProductCatFilter";
 
 function App() {
   return (
@@ -20,6 +21,11 @@ function App() {
         </nav>
         <Switch>
           <Route exact path="/" component={HomePage} />
+          <Route
+            exact
+            path="/prodbycat/:categoryId"
+            component={ProductCatFilter}
+          />
           <Redirect to="/" />
         </Switch>
       </Router>
