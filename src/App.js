@@ -11,6 +11,8 @@ import "./styles.css";
 import FilterByCategory from "./components/FilterByCategory";
 import ProductCatFilter from "./pages/ProductCatFilter";
 import ProductAttributes from "./pages/ProductAttributes";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
 
 function App() {
   return (
@@ -31,6 +33,17 @@ function App() {
             exact
             path="/prodattributes/:productid"
             component={ProductAttributes}
+          />
+          <Route
+            exact
+            path="/login/"
+            component={LoginPage}
+          />
+          
+          <Route
+            exact
+            path="/register/"
+            component={RegisterPage}
           />
           <Redirect to="/" />
         </Switch>
