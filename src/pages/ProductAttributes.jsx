@@ -4,61 +4,54 @@ import {
   fetchProductAttributes,
   singleProduct
 } from "../redux/actions/productActions";
+import Loader from "react-loader-spinner";
 class ProductAttributes extends Component {
+  state = {
+    colors: null
+  };
   componentDidMount() {
     this.props.singleProduct(this.props.match.params.productid);
     this.props.fetchProductAttributes(this.props.match.params.productid);
   }
   render() {
-    return (
+    /*console.log(this.props);
+    if (this.props.attributes !== null || this.props.attributes !== undefined) {
+      const color = this.props.attributes.filter(
+        color => color.attribute_name === "color"
+      );
+      this.setState({
+        colors: color
+      });
+    } else {
+    }*/
+    console.log(this.props.product);
+    return this.props.product && this.props.attributes ? (
       <main>
         <div className="card">
           <div className="card__body">
             <div className="half">
               <div className="featured_text">
-                <h1>Nurton</h1>
-                <p className="sub">Office Chair</p>
-                <p className="price">$210.00</p>
+                <p className="sub">{this.props.product.name}</p>
+                <p className="price">${this.props.product.price}</p>
               </div>
               <div className="image">
                 <img
-                  src="https://images-na.ssl-images-amazon.com/images/I/613A7vcgJ4L._SL1500_.jpg"
+                  src={`https://backendapi.turing.com/images/products/${
+                    this.props.product.image
+                  }`}
                   alt=""
                 />
               </div>
             </div>
             <div className="half">
               <div className="description">
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero
-                  voluptatem nam pariatur voluptate perferendis, asperiores
-                  aspernatur! Porro similique consequatur, nobis soluta minima,
-                  quasi laboriosam hic cupiditate perferendis esse numquam
-                  magni.
-                </p>
+                <p>{this.props.product.description}</p>
               </div>
-              <span className="stock">
-                <i className="fa fa-pen" /> In stock
-              </span>
-              <div className="reviews">
-                <ul className="stars">
-                  <li>
-                    <i className="fa fa-star" />
-                  </li>
-                  <li>
-                    <i className="fa fa-star" />
-                  </li>
-                  <li>
-                    <i className="fa fa-star" />
-                  </li>
-                  <li>
-                    <i className="fa fa-star" />
-                  </li>
-                  <li>
-                    <i className="fa fa-star-o" />
-                  </li>
-                </ul>
-              </div>
+              {this.props.attributes.map(p => (
+                <div>
+                  {p.attribute_name}:{p.attribute_value}
+                </div>
+              ))}
             </div>
           </div>
           <div className="card__footer">
@@ -69,12 +62,25 @@ class ProductAttributes extends Component {
           </div>
         </div>
       </main>
+    ) : (
+      <div
+        style={{
+          width: "100vw",
+          height: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center"
+        }}
+      >
+        <Loader type="Grid" color="#00BFFF" height={80} width={80} />
+      </div>
     );
   }
 }
 const mapStatesToProps = stateStore => {
-  console.log(stateStore.productState.prodAttributes);
-  let colors = null;
+  //  let colors = stateStore.productState.prodAttributes.filter(color => color.attribute_name ==="color");
+  //  let sizes = stateStore.productState.prodAttributes.filter(size => size.attribute_name ==="size");
+  //console.log(colors)
   return {
     product: stateStore.productState.product,
     attributes: stateStore.productState.prodAttributes
