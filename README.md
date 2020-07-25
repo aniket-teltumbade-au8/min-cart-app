@@ -1,2 +1,2 @@
-# min-cart-app
+# breaking-bad-app
 Created with CodeSandbox
