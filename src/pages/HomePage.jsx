@@ -7,7 +7,12 @@ class HomePage extends Component {
     this.props.fetchProducts();
   }
   render() {
-    return this.props.prod ? <h1>Connected</h1> : <h1>Loading</h1>;
+    console.log(this.props.prod.rows);
+    return this.props.prod.rows ? (
+      <h1>{JSON.stringify(this.props.prod)}</h1>
+    ) : (
+      <h1>Loading</h1>
+    );
   }
 }
 const mapsStatesToProps = storestate => {
