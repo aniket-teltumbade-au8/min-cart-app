@@ -10,6 +10,7 @@ import NavMenu from "./components/NavMenu";
 import "./styles.css";
 import FilterByCategory from "./components/FilterByCategory";
 import ProductCatFilter from "./pages/ProductCatFilter";
+import ProductAttributes from "./pages/ProductAttributes";
 
 function App() {
   return (
@@ -25,6 +26,11 @@ function App() {
             exact
             path="/prodbycat/:categoryId"
             component={ProductCatFilter}
+          />
+          <Route
+            exact
+            path="/prodattributes/:productid"
+            component={ProductAttributes}
           />
           <Redirect to="/" />
         </Switch>
